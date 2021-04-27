@@ -52,4 +52,4 @@ def save_photo(post_objects):
                 urllib.request.urlretrieve(post.url, f"data/pic+{t}.png")
                 return f"data/pic+{t}.png"
             else:
-                print("Error: not a photo")
+                return False
