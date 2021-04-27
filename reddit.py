@@ -3,6 +3,7 @@ from twitter import *
 import datetime
 import random
 import time
+import os
 
 if __name__ == "__main__":
 
@@ -36,3 +37,7 @@ if __name__ == "__main__":
 
         tweet(photo, caption)
         time.sleep(300)
+
+    for _, _, files in os.walk("data/"):
+        for file in files:
+            os.remove(f"data/{file}")
