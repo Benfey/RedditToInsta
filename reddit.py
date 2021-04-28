@@ -19,6 +19,8 @@ if __name__ == "__main__":
                 "hmmm",
                 "OSHA"]
 
+    random.shuffle(subreddits)
+
     serious = ["nocontextpics", "interestingasfuck", "Earthporn"]
 
     for i in range(len(subreddits)):
@@ -33,8 +35,9 @@ if __name__ == "__main__":
         if any([sub == subreddits[i] for sub in serious]):
             caption = f'"{post_titles[0]}"\n\nPost author: /u/{post_objects[0].author}\nr/{subreddits[i]}\n\nLink: {reddit.config.reddit_url + post_objects[0].permalink}\n#{subreddits[i]} #reddit #pics #amazing #cool'
         else:
-            caption = f'"{post_titles[0]}"\n\nPost author: /u/{post_objects[0].author}\nr/{subreddits[i]}\n\nLink: {reddit.config.reddit_url + post_objects[0].permalink}\n#{subreddits[i]} #reddit #pics #memes #funny'
+            caption = f'"{post_titles[0]}"\n\nPost author: /u/{post_objects[0].author}\nr/{subreddits[i]}\n\nLink: {reddit.config.reddit_url + post_objects[0].permalink}\n#{subreddits[i]} #reddit #pics #memes'
 
+        print(f"Posted from {subreddits[i]}")
         tweet(photo, caption)
         time.sleep(300)
 
